@@ -1,0 +1,14 @@
+.topic {
+    height: auto;
+    margin: 2px auto;    
+}
+
+.topic:hover {
+    background-color: aqua;
+}
+
+.title-topic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
