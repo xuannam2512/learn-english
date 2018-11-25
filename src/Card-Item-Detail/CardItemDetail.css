@@ -1,0 +1,30 @@
+.slide-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background-color: aquamarine; 
+    border-radius: 5px; 
+}
+
+.card-above {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 350px;
+    height: 440px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.img-card-custome {
+    max-height: 300px;
+}
+
+.card-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

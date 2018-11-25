@@ -14,6 +14,7 @@
     border-radius: 10px;
     border-bottom: 1px solid black;
     max-height: 70px;
+    border-radius: 10px;
 }
 
 .img-custom {
@@ -21,6 +22,7 @@
 }
 
 .topic:before {
+    border-radius: 10px;
     content: "";
     position: absolute;
     z-index: -1;
@@ -43,6 +45,7 @@
 
 .topic:hover, .topic:focus, .topic:active {
     color: white;
+    border-radius: 10px;
   }
 
   .topic:hover:before, .topic:focus:before, .topic:active:before {
@@ -50,6 +53,7 @@
     transform: scaleX(1);
     -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    border-radius: 10px;
   }
 
 .title-topic {

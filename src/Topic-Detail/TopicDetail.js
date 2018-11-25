@@ -4,6 +4,7 @@ import './TopicDetails.css'
 //component
 import Fruit from './Fruit'
 import Animal from './Animal'
+import Vehicle from './Vehicles'
 import Introduction from './Introduction'
 
 class TopicDetail extends Component {
@@ -12,9 +13,11 @@ class TopicDetail extends Component {
             <div class='container'>
             {
                 this.props.topicId == 1 ?
-                <Fruit />
+                <Fruit onClickCard={(index) => this.props.onClickTopicDetail(index)}/>
                 : this.props.topicId == 2 ?
-                <Animal />    
+                <Animal onClickCard={(index) => this.props.onClickTopicDetail(index)}/>    
+                : this.props.topicId == 3 ? 
+                <Vehicle onClickCard={(index) => this.props.onClickTopicDetail(index)}/>
                 :
                 <Introduction />  
             }
