@@ -5,6 +5,11 @@ import Topic from './Topic/topics'
 import TopicDetail from './Topic-Detail/TopicDetail'
 
 class App extends Component {
+
+  state = {
+    topicId: 0
+  }
+  
   render() {
     return (
       <div>
@@ -14,17 +19,17 @@ class App extends Component {
           </a>
         </nav>
         
-        <div className="container-fluid mr-md-3">
+        <div className="container-fluid mr-md-3 mb-5">
           <div className="row mt-md-5">
           <div class="col">
           </div>
           <div class="col-10">
             <div class="row">
-              <div class = 'col-4 topics'> 
-                <Topic />
+              <div class = 'col-3 topics mr-5'> 
+                <Topic onClickTopic = {(index) => { this.setState({ topicId : index }) }}/>
               </div>
-              <div class='col-8 topic-details'>
-                <TopicDetail />
+              <div class='col-8 topic-details ml-2'>
+                <TopicDetail topicId={this.state.topicId}/>
               </div>
             </div>
           </div>

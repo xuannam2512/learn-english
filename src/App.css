@@ -1,11 +1,13 @@
 .topics {
   height: auto;
   background-color: #52741E;
+  border-radius: 10px;
 }
 
 .topic-details {
   height: auto;
   background-color: antiquewhite; 
+  border-radius: 10px;
   
 }
 @keyframes App-logo-spin {
