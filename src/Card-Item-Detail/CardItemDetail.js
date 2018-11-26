@@ -11,6 +11,8 @@ import ContentFruit from './Content-Fruit'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import CardAbove from './Card-Above'
+import CardBehide from './Card-Behide'
 
 library.add(faEnvelope, faKey, faCaretLeft, faCaretRight);
 
@@ -22,13 +24,14 @@ class CardItemDetail extends Component {
             index: this.props.cardId,
             topicId: this.props.topicId,
             isVisible: true,
-            isLeft: true
+            isLeft: true,
+            isAbove: true
         }
     }
 
     onClickLeft = () => {
-        setTimeout(() => {
-            this.setState({ isLeft: true });
+        this.setState({ isLeft: true });
+        setTimeout(() => {            
             this.setState({isVisible: false})
             setTimeout(() => {
                 this.setState({ index: this.state.index > 1 ? this.state.index - 1 : 9 })        
@@ -38,14 +41,18 @@ class CardItemDetail extends Component {
     }
 
     onClickRight = () => {
-        setTimeout(() => {
-            this.setState({ isLeft: false });
+        this.setState({ isLeft: false });
+        setTimeout(() => {            
             this.setState({isVisible: false})
             setTimeout(() => {
                 this.setState({ index: this.state.index < 9 ? this.state.index + 1 : 1 })
                 this.setState({isVisible: true})        
             }, 500)
         }, 100)                  
+    }
+
+    onClickChangeFace = () => {
+        this.setState({ isAbove: !this.state.isAbove })       
     }
 
     render() {
@@ -59,17 +66,19 @@ class CardItemDetail extends Component {
                                 <FontAwesomeIcon icon="caret-left" size="8x"/>
                             </span>
                         </div>                                                     
-                        <div className='col-6'>
-                            <Animated animationIn={this.state.isLeft ? "fadeInDown" : "fadeInUp"} animationOut={this.state.isLeft ? "fadeOutDown" : "fadeOutUp"} isVisible={this.state.isVisible}> 
-                                <div className='content'>
-                                    {
-                                        this.state.topicId == 1 ?
-                                            <ContentFruit cardId={this.state.index} />
-                                            :
-                                            <div></div>
-                                    }
-                                </div>                                  
-                            </Animated>                            
+                        <div className='col-6' onClick={this.onClickChangeFace}> 
+                            {
+                                this.state.isAbove ? 
+                                    <CardAbove  isVisible={this.state.isVisible} 
+                                                isLeft = {this.state.isLeft} 
+                                                topicId = {this.state.topicId} 
+                                                index = {this.state.index} />                            
+                                :
+                                    <CardBehide isVisible={this.state.isVisible} 
+                                                isLeft = {this.state.isLeft} 
+                                                topicId = {this.state.topicId} 
+                                                index = {this.state.index}/>
+                            }                                                       
                         </div>                   
                         <div class='arrow-right col-3'>
                             <span class='right-title' onClick={this.onClickRight}>
