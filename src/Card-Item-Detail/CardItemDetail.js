@@ -1,71 +1,80 @@
 import React, { Component } from 'react'
+import { Animated } from 'react-animated-css'
 
 //import css
 import './CardItemDetail.css'
 
-//import image
-import Apple from '../image/fruit/12316860561101736632rg1024_apple.svg.med.png'
-import Orange from '../image/fruit/Large_Painted_Orange_PNG_Clipart.png'
-import Pineapple from '../image/fruit/Pineapple.png'
-import Banana from '../image/fruit/banana-clipart-sweet-food-4.png'
-import Grape from '../image/fruit/f1b29ee56628bccf15df81d70c329643.png'
-import StartFruit from '../image/fruit/Carambola_Transparent_Clip_Art_Image.png'
-import Durian from '../image/fruit/61TBIlJAJLL.png'
-import Papaya from '../image/fruit/Papaya-PNG-Vector-Clipart-Image.png'
-import Rambutan from '../image/fruit/transcoder.png'
 
 // import components
+import SideBarNumber from './SideBarNumber'
+import ContentFruit from './Content-Fruit'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(faEnvelope, faKey, faCaretLeft, faCaretRight);
+
 class CardItemDetail extends Component {
     
     constructor(props) {
         super(props);
         this.state = {
             index: this.props.cardId,
-            topicId: this.props.topicId
+            topicId: this.props.topicId,
+            isVisible: true,
+            isLeft: true
         }
+    }
+
+    onClickLeft = () => {
+        setTimeout(() => {
+            this.setState({ isLeft: true });
+            this.setState({isVisible: false})
+            setTimeout(() => {
+                this.setState({ index: this.state.index > 1 ? this.state.index - 1 : 9 })        
+                this.setState({isVisible: true})        
+            }, 500) 
+        }, 100)               
+    }
+
+    onClickRight = () => {
+        setTimeout(() => {
+            this.setState({ isLeft: false });
+            this.setState({isVisible: false})
+            setTimeout(() => {
+                this.setState({ index: this.state.index < 9 ? this.state.index + 1 : 1 })
+                this.setState({isVisible: true})        
+            }, 500)
+        }, 100)                  
     }
 
     render() {
         return (
             <div>                
                 <div class="container">
-                    <div class='row mt-1'>
-                        <div className='active col slide-bar ml-1' style={ this.state.index == 1 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            1
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 2 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            2
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 3 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            3
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 4 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            4
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 5 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            5
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 6 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            6
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 7 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            7
-                        </div>
-                        <div class='col slide-bar ml-1' style={ this.state.index == 8 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            8
-                        </div>
-                        <div class='col slide-bar ml-1'style={ this.state.index == 9 ? {backgroundColor: 'red'} : {backgroundColor: 'aquamarine'}}>
-                            9
-                        </div>
-                    </div>  
+                    <SideBarNumber index = {this.state.index}/>
                     <div class='row mt-3 mb-3 card-above'>
-                        <div class='content'>
-                            <div class='card-item-img mt-4'>
-                                <img class="img-fluid img-card-custome" alt="Responsive image" src={Banana}></img>
-                            </div>
-                            <div class='card-info'>
-
-                            </div>
+                        <div class='arrow-left col-3'>
+                            <span class='left-title' onClick={this.onClickLeft}>
+                                <FontAwesomeIcon icon="caret-left" size="8x"/>
+                            </span>
+                        </div>                                                     
+                        <div className='col-6'>
+                            <Animated animationIn={this.state.isLeft ? "fadeInDown" : "fadeInUp"} animationOut={this.state.isLeft ? "fadeOutDown" : "fadeOutUp"} isVisible={this.state.isVisible}> 
+                                <div className='content'>
+                                    {
+                                        this.state.topicId == 1 ?
+                                            <ContentFruit cardId={this.state.index} />
+                                            :
+                                            <div></div>
+                                    }
+                                </div>                                  
+                            </Animated>                            
+                        </div>                   
+                        <div class='arrow-right col-3'>
+                            <span class='right-title' onClick={this.onClickRight}>
+                                <FontAwesomeIcon icon="caret-right" size="8x"/>
+                            </span>
                         </div>
                     </div>
                 </div>
