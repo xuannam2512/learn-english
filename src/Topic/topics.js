@@ -7,10 +7,11 @@ import Vehicle from '../image/Vehicles/Vehicles.png'
 class Topic extends Component {
     
     render() {
-        const a = <div></div>;
         return (
             <div class = "container-fluid">
-                <div class = 'row topic mt-3 mb-3 pb-2  ' onClick={() => this.props.onClickTopic(1)}>
+                <div class = 'row topic mt-3 mb-3 pb-2  ' 
+                    onClick={() => this.props.onClickTopic(1)}
+                    style={this.props.topicId == 1 ? {backgroundColor: '#2098D1'} : {backgroundColor: '#52741E'}}>
                     <div class='col-6'>
                         <img class="img-fluid rounded img-custom" alt="Responsive image" src={Fruit}></img>
                     </div>
@@ -18,7 +19,9 @@ class Topic extends Component {
                         Fruit
                     </div>
                 </div>
-                <div class = 'row topic mt-3 mb-3 pb-2' onClick={() => this.props.onClickTopic(2)}>
+                <div class = 'row topic mt-3 mb-3 pb-2' 
+                    onClick={() => this.props.onClickTopic(2)}
+                    style={this.props.topicId == 2 ? {backgroundColor: '#2098D1'} : {backgroundColor: '#52741E'}}>
                     <div class='col-6'>
                         <img class="img-fluid rounded img-custom" alt="Responsive image" src={Animal}></img>
                     </div>
@@ -26,7 +29,9 @@ class Topic extends Component {
                         Animal
                     </div>
                 </div>
-                <div class = 'row topic mt-3 mb-3 pb-2' onClick={() => this.props.onClickTopic(3)}>
+                <div class = 'row topic mt-3 mb-3 pb-2' 
+                    onClick={() => this.props.onClickTopic(3)}
+                    style={this.props.topicId == 3 ? {backgroundColor: '#2098D1'} : {backgroundColor: '#52741E'}}>
                     <div class='col-6'>
                         <img class="img-fluid rounded img-custom" alt="Responsive image" src={Vehicle}></img>
                     </div>

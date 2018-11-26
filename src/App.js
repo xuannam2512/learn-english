@@ -29,7 +29,7 @@ class App extends Component {
             <div class="col-10">
               <div class="row">
                 <div class='col-3 topics mr-5'>
-                  <Topic onClickTopic={(index) => { this.setState({ isDetail: false, topicId: index }) }} />
+                  <Topic onClickTopic={(index) => { this.setState({ isDetail: false, topicId: index }) }} topicId = {this.state.topicId} />
                 </div>
                 <div class='col-8 topic-details ml-2'>
                   {

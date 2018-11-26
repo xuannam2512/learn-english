@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react' 
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faCaretLeft, faCaretRight, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
@@ -6,17 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(faEnvelope, faKey, faCaretLeft, faCaretRight, faVolumeUp);
 
-class ContentFruitBehide extends Component {
+class ContentVehicleBehide extends Component {
     render() {
         return (
             this.props.cardId == 1 ?
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Apple</b></h3>
+                            <h3><b>Car</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>['æpl]</h4>
+                            <h4>['kɑːr]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -29,10 +29,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Orange</b></h3>
+                            <h3><b>Truck</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>['ɔrindʒ]</h4>
+                            <h4>[trʌk]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -45,10 +45,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Pineapple</b></h3>
+                            <h3><b>Bus</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>['painæpl]</h4>
+                            <h4>[bʌs]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -61,10 +61,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Banana</b></h3>
+                            <h3><b>Bicycle</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[bə'nɑ:nə]</h4>
+                            <h4>[ˈbaɪ.sə.kəl]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -77,10 +77,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Grape</b></h3>
+                            <h3><b>Train</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[ɡreɪp]</h4>
+                            <h4>[treɪn]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -93,10 +93,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>StarFruit</b></h3>
+                            <h3><b>Flight</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[ˈstɑːr.fruːt]</h4>
+                            <h4>[flaɪt]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -109,10 +109,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Durian</b></h3>
+                            <h3><b>Van</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[ˈdʊr.i.ən]</h4>
+                            <h4>[væn]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -125,10 +125,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Papaya</b></h3>
+                            <h3><b>Ship</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[pəˈpaɪ.ə]</h4>
+                            <h4>[ʃɪp]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -141,10 +141,10 @@ class ContentFruitBehide extends Component {
                 <div class="word-box">
                     <div>
                         <div class='word'>
-                            <h3><b>Rambutan</b></h3>
+                            <h3><b>Taxi</b></h3>
                         </div>
                         <div class='spelling'>
-                            <h4>[ræmˈbuː.tən]</h4>
+                            <h4>[ˈtæk.si]</h4>
                         </div>
                         <div class='sound'>
                             <span>
@@ -157,4 +157,4 @@ class ContentFruitBehide extends Component {
     }
 }
 
-export default ContentFruitBehide;
+export default ContentVehicleBehide;

@@ -3,6 +3,8 @@ import { Animated } from 'react-animated-css'
 
 //import components
 import ContentFruit from './Content-Fruit'
+import ContentAnimal from './Content-Animal'
+import ContentVehicle from './Content-Vehicle'
 
 class CardAbove extends Component {
     render() {
@@ -12,7 +14,11 @@ class CardAbove extends Component {
                     {
                         this.props.topicId == 1 ?
                             <ContentFruit cardId={this.props.index} />
-                            :
+                        : this.props.topicId == 2 ?
+                            <ContentAnimal cardId={this.props.index}/>
+                        : this.props.topicId == 3 ? 
+                            <ContentVehicle cardId={this.props.index} />
+                        :
                             <div></div>
                     }
                 </div>                                  
